@@ -1,5 +1,4 @@
 import{test} from "@playwright/test"; 
-import RegisterPage from "../PageObjects/Register-page";
 import data from"../TestData/Register-data.json";
 import LoginPage from "../PageObjects/Login-page";
 

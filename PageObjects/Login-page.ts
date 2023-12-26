@@ -2,28 +2,28 @@ import { Locator, Page, expect } from "@playwright/test";
 
 export default class LoginPage {
     readonly page: Page;
-    emailLocator: Locator;
-    passwordLocator: Locator;
-    signInButton: Locator;
-    verifyLogin: Locator;
-    
-  
+    readonly emailLocator: Locator;
+    readonly passwordLocator: Locator;
+    readonly signInButton: Locator;
+    readonly verifyLogin: Locator;
+
+
 
 
     constructor(page: Page) {
         this.page = page;
         this.emailLocator = page.locator("#email-address");
         this.passwordLocator = page.locator('#password');
-        this.signInButton=page.locator("//button[.=' Sign in']");
-        this.verifyLogin=page.locator('//button[@aria-controls="menu-appbar"]').last();
+        this.signInButton = page.locator("//button[.=' Sign in']");
+        this.verifyLogin = page.locator('//button[@aria-controls="menu-appbar"]').last();
 
 
-        
-        
+
+
     }
-    
 
-    async goToLoginPage(url:string){
+
+    async goToLoginPage(url: string) {
         await this.page.waitForLoadState("load");
         await this.page.goto(url);
         await this.page.waitForLoadState("load");
@@ -41,7 +41,7 @@ export default class LoginPage {
         await this.signInButton.click();
     }
 
-    async verifLoginSuccessfully(){
+    async verifLoginSuccessfully() {
 
         await expect(this.verifyLogin).toBeTruthy();
     }
